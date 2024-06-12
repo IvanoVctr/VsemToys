@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всем Игрушки</title>
+    <link rel="stylesheet" href="css/min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/themeToggle.js"></script>
+    <script type="module" src="js/sw_basket.js"></script>
+</head>
+
+<body class="light-theme">
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <img class="logotip" src="img/logo.png" alt="логотип">
+                <h1>Vsem<br>Toys!</h1>
+            </div>
+            <div class="top_nav">
+                <ul>
+                    <li>
+                        <a href="#info">О нас</a>
+                    </li>
+                    <li>
+                        <a href="#items">Каталог</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ico">
+                <button class="basket" id="modal_up"><p>Корзина</p><img src="img/basket.png" alt="" height="32px" width="30px"></button>
+                <button id="themeToggle"><img src="img/theme.png" alt="" height="32px" width="30px"></button>
+            </div>
+        </header>
+        <main>
+            <div class="info">
+                <div con_txt>Ваше обращение принято!</div>
+                <div class="container">
+                    <div class="con_1">
+                        <p>Имя:</p>
+                        <p id="displayName"></p>
+                    </div>
+                    <div class="con_2">
+                        <p>Почта:</p>
+                        <p id="displayEmail"></p>
+                    </div>
+                    <div class="con_3">
+                        <p>Текст обращения:</p>
+                        <p id="displayQuery"></p>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .container {
+                    display: grid;
+                    gap: 20px;
+                }
+                
+                .con_1,
+                .con_2,
+                .con_3 {
+                    display: flex;
+                    justify-items: end;
+                    align-items: end;
+                }
+                
+                #displayName,
+                #displayEmail,
+                #displayQuery {
+                    justify-items: end;
+                    align-items: end;
+                }
+            </style>
+            <script>
+                // Retrieve the values from the URL
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+
+                const name = decodeURIComponent(urlParams.get('name'));
+                const email = decodeURIComponent(urlParams.get('email'));
+                const query = decodeURIComponent(urlParams.get('query'));
+
+                // Display the retrieved values on the page
+                document.getElementById('displayName').textContent = name;
+                document.getElementById('displayEmail').textContent = email;
+                document.getElementById('displayQuery').textContent = query;
+            </script>
+    </div>
+    </main>
+
+    <footer>
+        <div class="f_1">
+            <p>Адрес: Ленинский пр-т., 14, Воронеж, Воронежская обл</p>
+            <p>Индекс: 394029</p>
+            <p>e-mail: vsemToys@toy.com</p>
+        </div>
+        <div class="f_2">
+            <div>
+                <p>ПН, ВТ, СР, ЧТ, ПТ - с 9.00 по 18.00<br> СБ - с 9.00 по 16.00<br> ВС - выходной</p>
+            </div>
+            <div style="border-left: 3px solid rgb(255, 255, 255); padding-left: 10px;">
+                <span><h6>8(800) 800-80-80</h6>
+                <p>Интерент-магазин</p></span>
+                <span><h6>8(800) 800-80-80</h6>
+                <p>Поддержка</p></span>
+                <span><h6>8(800) 800-80-80</h6>
+                <p>Корпоративным клиентам</p></span>
+            </div>
+        </div>
+        <div class="f_3">
+            <div class="icons">
+                <a href=""><img src="img/ico/vk.png" alt="Vk" width="40px" height="40px"></a>
+                <a href=""><img src="img/ico/ok.png" alt="Ok" width="40px" height="40px"></a>
+                <a href=""><img src="img/ico/tg.png" alt="Tg" width="40px" height="40px"></a>
+            </div>
+            <div class="feedback"><input type="email" placeholder="e-mail"><button type="submit">Подписаться</button>Получайте новости первым!</div>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>
